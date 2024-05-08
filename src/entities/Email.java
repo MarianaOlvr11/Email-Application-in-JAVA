@@ -8,6 +8,7 @@ public class Email {
     private String lastName;
     private String departament;
     private int capMailBox;
+    private String email;
 
 
 
@@ -25,7 +26,11 @@ public class Email {
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is: " + this.password);
 
+
+
+
         System.out.println("Your Email: " + firstName.toLowerCase()+ "."+lastName.toLowerCase()+"@"+this.departament +".company.com");
+        email = firstName.toLowerCase()+ "."+lastName.toLowerCase()+"@"+this.departament +".company.com";
     }
 
 
@@ -66,6 +71,25 @@ public class Email {
         return new String(password);
     }
 
+    public void setCapMailBox(int capacity) {
+        this.capMailBox = capacity;
+    }
+
+
+
+    public void setChangePassword(String newpassword) {
+        this.password = newpassword;
+    }
+
+    public void setAlternativeEmail(String altemail) {
+        this.email = altemail;
+    }
+
+    public String toShowInfo(){
+        return "\n DISPLAY NAME: " + firstName + " " + lastName
+                + "\nCOMPANY EMAIL: " + email
+                +"\nMAILBOX CAPACITY: " + capMailBox +"mb";
+    }
 
 }
 
