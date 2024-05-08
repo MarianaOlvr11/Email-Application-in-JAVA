@@ -25,6 +25,7 @@ public class Email {
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is: " + this.password);
 
+        System.out.println("Your Email: " + firstName.toLowerCase()+ "."+lastName.toLowerCase()+"@"+this.departament +".company.com");
     }
 
 
@@ -64,6 +65,8 @@ public class Email {
         }
         return new String(password);
     }
+
+
 }
 
 
