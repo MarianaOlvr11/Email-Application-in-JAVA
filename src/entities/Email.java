@@ -3,18 +3,28 @@ package entities;
 import java.util.Scanner;
 
 public class Email {
+
     private String firstName;
     private String lastName;
     private String departament;
     private int capMailBox;
 
+
+
+
+
     public Email(String firstName, String lastName) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
 
         this.departament = setDepartament();
         System.out.println("DEPARTAMENT: " + this.departament);
+
+        this.password = randomPassword(defaultPasswordLength);
+        System.out.println("Your password is: " + this.password);
+
     }
 
 
@@ -37,6 +47,25 @@ public class Email {
         return setDepartament();
     }
 
+    private String password;
+    private int defaultPasswordLength = 8;
 
+
+    public String getPassword() {
+        return password;
+    }
+
+    private String randomPassword(int length){
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#$*!abcdefghijklmnopqrstuvwxyz";
+        char[] password = new char[length];
+        for (int i = 0; i < length; i++){
+            int random = (int)(Math.random()*passwordSet.length());
+            password[i] = passwordSet.charAt(random);
+        }
+        return new String(password);
+    }
 }
+
+
+
 
