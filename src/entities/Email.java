@@ -9,6 +9,7 @@ public class Email {
     private String departament;
     private int capMailBox;
     private String email;
+    private String password;
 
 
 
@@ -23,7 +24,9 @@ public class Email {
         this.departament = setDepartament();
         System.out.println("DEPARTAMENT: " + this.departament);
 
-        this.password = randomPassword(defaultPasswordLength);
+        Password password = new Password();
+
+        this.password = password.randomPassword(8);
         System.out.println("Your password is: " + this.password);
 
 
@@ -53,32 +56,9 @@ public class Email {
         return setDepartament();
     }
 
-    private String password;
-    private int defaultPasswordLength = 8;
-
-
-    public String getPassword() {
-        return password;
-    }
-
-    private String randomPassword(int length){
-        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#$*!abcdefghijklmnopqrstuvwxyz";
-        char[] password = new char[length];
-        for (int i = 0; i < length; i++){
-            int random = (int)(Math.random()*passwordSet.length());
-            password[i] = passwordSet.charAt(random);
-        }
-        return new String(password);
-    }
 
     public void setCapMailBox(int capacity) {
         this.capMailBox = capacity;
-    }
-
-
-
-    public void setChangePassword(String newpassword) {
-        this.password = newpassword;
     }
 
     public void setAlternativeEmail(String altemail) {

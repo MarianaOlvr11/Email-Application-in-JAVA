@@ -1,4 +1,5 @@
 import entities.Email;
+import entities.Password;
 
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class Main {
         String lName = sc.nextLine();
 
         Email email = new Email(fName, lName);
+        Password password = new Password();
 
         System.out.print("Enter the capacity of MailBox: ");
         int cap = sc.nextInt();
@@ -39,7 +41,7 @@ public class Main {
                 System.out.println("Enter your new password: ");
                 sc.nextLine();
                 String newPassword = sc.nextLine();
-                email.setChangePassword(newPassword);
+                password.setChangePassword(newPassword);
             } else {
                 System.out.println("Enter your new email: ");
                 sc.nextLine();
@@ -48,7 +50,7 @@ public class Main {
 
                 System.out.println("Enter your new password: ");
                 String newPassword = sc.nextLine();
-                email.setChangePassword(newPassword);
+                password.setChangePassword(newPassword);
 
             }
             System.out.println();
